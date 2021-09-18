@@ -76,7 +76,7 @@ class PracticaController extends Controller
         $practica->observacion=$request->txtobservacion;
         $practica->estado=$request->txtestado;
         $practica->save();
-        return redirect('/practices')->with('status','Práctica Calificada');;
+        return redirect('/practices')->with('status','Práctica Calificada');
     }
 
     public function updateu(Request $request) { //user
@@ -86,7 +86,7 @@ class PracticaController extends Controller
         $practica->comentario=$request->txtcomentario;
         $practica->estado='Pendiente Corrección';
         $practica->save();
-        return redirect('/practica')->with('status','Práctica Enviada');;
+        return redirect('/practica')->with('status','Práctica Enviada');
     }
 
     /**

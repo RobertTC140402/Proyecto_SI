@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Preinscripcion;
 use App\Models\Practica;
+use App\Models\Tesis;
 
 class AdminController extends Controller
 {
@@ -18,5 +19,9 @@ class AdminController extends Controller
     }
     public function stats() {
         return view('admin.estadisticas');
+    }
+    public function tesis(){
+        $tesis=Tesis::all()->where('asesor',auth()->user()->name);
+        return view('admin.tesis',compact('tesis'));
     }
 }

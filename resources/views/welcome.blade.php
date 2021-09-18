@@ -13,9 +13,6 @@
     <div class="main">
         <div class="container justify-content-center align-items-center">
             <div class="col-auto p-5" style="text-align:center; font-family:'Times New Roman'">
-                @auth
-                <label style="font-size: 18px;">{{ auth()->user()->name }} <br> ({{ auth()->user()->role }})</label> <br> <br>
-                @endauth
             </div> 
         </div>
     </div>

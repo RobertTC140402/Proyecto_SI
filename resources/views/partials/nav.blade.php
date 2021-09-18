@@ -23,8 +23,12 @@
                 @if (auth()->user()->role=='admin')
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.index') }}">Preinscripciones</a>
-                    </li><li class="nav-item">
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.practicas') }}">Prácticas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('admin.tesis')}}">Tesis</a>
                     </li>
                     {{-- </li><li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.estadisticas') }}">Estadísticas</a>
@@ -57,7 +61,7 @@
             </ul>
         </div>
         <div style="position:absolute;right:16px;top:25%;height:100%">
-            <span class="navbar-text" style="font-size:10px;line-height:100%;color:#0d6efd">
+            <span class="navbar-text" style="font-size:10px;line-height:100%;color:white">
                 @if(session('status'))
                 <i class="bi bi-info-circle"></i> {{ session('status') }}
                 @endif

@@ -14,13 +14,12 @@ class TesisController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
-        $tesis = Tesis::all();
+        $tesis = Tesis::all()->where("alumno",auth()->user()->name);
         $docentes = User::all()->where('role','admin');
-        $jurados = User::all()->where('role','judge');
-        return view('tesis', compact('tesis', 'docentes','jurados'));
-
+        return view('tesis', compact('tesis', 'docentes'));
     }
 
     /**
@@ -40,25 +39,19 @@ class TesisController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {;
+    {
         $tesis = new Tesis();
         $tesis->titulo=$request->txtTitulo;
-        $tesis->documentos = $request->txtDocumentos;
-        $tesis->alumno = $request->txtAlumno;
-        $tesis->docente = $request->txtDocente;
-        $tesis->jurado = $request->txtJurado;
-        $tesis->fsustentacion= $request->txtFechaInicio;
-        $tesis->comentario = $request->txtComentario;
-        $tesis->estado = 'Por Revisar';
+        $tesis->documentos = $request->txtCarpeta;
+        $tesis->alumno = auth()->user()->name;
+        $tesis->telefono = $request->txtTelefono;
+        $tesis->asesor = $request->txtDocente_Asesor;
+        $tesis->finicio= $request->txtFInicio;
+        $tesis->jurado = 'Por Definirse';
+        $tesis->sumilla = $request->txtSumilla;
+        $tesis->estado = 'Por Aceptar';
         $tesis->save();
         return redirect('tesis')->with('status', 'Tesis Registrada');
-        
-
-
-
-
-
-
 
     }
 
@@ -91,9 +84,22 @@ class TesisController extends Controller
      * @param  \App\Models\Tesis  $tesis
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tesis $tesis)
+    public function update($id,Request $request)
     {
-        //
+        $tesis=Tesis::find($id);
+        $tesis->observacion=$request->txtobservacion;
+        $tesis->estado=$request->txtestado;
+        $tesis->save();
+        return redirect('/tesisasesor')->with('status','Tesis aceptada con éxito');
+    }
+
+    public function updatej($id,Request $request)
+    {
+        $tesis=Tesis::find($id);
+        $tesis->link_sustentacion=$request->txtlink_sustentacion;
+        $tesis->fsustentacion=$request->txtFSustentacion;
+        $tesis->save();
+        return redirect('/judge')->with('status','Felicidades, usted ha calificado para Jurado');
     }
 
     /**

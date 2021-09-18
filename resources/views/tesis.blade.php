@@ -13,7 +13,7 @@
     @include('partials.nav')
     <div class="container" style="margin-top:50px;text-align:center">
         <br> <h3>Tesis</h3> <br>
-        <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#Modal">
+        <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#Modal" @if(count($tesis)>0) disabled @endif>
             <i class="bi bi-plus"></i> Nueva Tesis
         </button> <br>
         <table class="table table-hover align-middle">
@@ -42,75 +42,220 @@
                     @endforelse
             </tbody>
         </table>
+
+        <section class="content">
+
+            <!-- Default box -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Progreso de la Tesis</h3><br>
+                <div class="progress">
+                    <div class="progress-bar bg-primary progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                      <span class="sr-only">40%</span>
+                    </div>
+                  </div>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body" style="display: block;">
+                <div class="row">
+                  <div class="col-12 col-md-12 order-2 order-md-1">
+                    <div class="row">
+                      <div class="col-12 col-sm-4">
+                        <div class="info-box bg-light">
+                          <div class="info-box-content">
+                            <span class="info-box-text text-center text-muted">Horas dedicadas esta semana:</span>
+                            <span class="info-box-number text-center text-muted mb-0">10h</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-4">
+                        <div class="info-box bg-light">
+                          <div class="info-box-content">
+                            <span class="info-box-text text-center text-muted">Documentos revisados:</span>
+                            <span class="info-box-number text-center text-muted mb-0">3</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-4">
+                        <div class="info-box bg-light">
+                          <div class="info-box-content">
+                            <span class="info-box-text text-center text-muted">Duración total del proyecto de tesis: </span>
+                            <span class="info-box-number text-center text-muted mb-0">5 m</span>
+                          </div>
+                        </div>
+                      </div><br><br>
+
+                      <div class="col-12">
+                        <div class="card card-primary card-tabs">
+                          <div class="card-header p-0 pt-1">
+                            <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                              <li class="nav-item">
+                                <a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">Observaciones</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">Mis notas</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" id="custom-tabs-one-messages-tab" data-toggle="pill" href="#custom-tabs-one-messages" role="tab" aria-controls="custom-tabs-one-messages" aria-selected="false">Información Personal</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" id="custom-tabs-one-settings-tab" data-toggle="pill" href="#custom-tabs-one-settings" role="tab" aria-controls="custom-tabs-one-settings" aria-selected="false">Repositorio</a>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="card-body">
+                            <div class="tab-content" id="custom-tabs-one-tabContent">
+                              <div class="tab-pane fade show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
+
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste nostrum ullam corporis. Rem dolore nobis, optio assumenda reiciendis quibusdam praesentium dicta, laudantium nesciunt blanditiis repellat maiores consequuntur non fugit aut.
+                                 
+                              </div>
+                            </div>
+                          </div>
+                          <!-- /.card -->
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><br>
+            <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">Pendientes para la semana</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th style="width: 10px">#</th>
+                        <th>Tarea</th>
+                        <th>Progreso</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1.</td>
+                        <td>Actualizar índice</td>
+                        <td>
+                          <div class="progress progress-xs">
+                            <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2.</td>
+                        <td>Revisar formato APA página 54</td>
+                        <td>
+                          <div class="progress progress-xs">
+                            <div class="progress-bar bg-warning" style="width: 70%"></div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>3.</td>
+                        <td>Poner más anexos</td>
+                        <td>
+                          <div class="progress progress-xs progress-striped active">
+                            <div class="progress-bar bg-primary" style="width: 30%"></div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>4.</td>
+                        <td>Terminar el marco teórico</td>
+                        <td>
+                          <div class="progress progress-xs progress-striped active">
+                            <div class="progress-bar bg-success" style="width: 90%"></div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer clearfix">
+                  <ul class="pagination pagination-sm m-0 float-right">
+                    <li class="page-item"><a class="page-link" href="#">«</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">»</a></li>
+                  </ul>
+                </div>
+              </div>
+      
+          </section>
+
     </div>
+
     <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h6 class="modal-title" id="ModalLabel">Nueva Preinscripción</h6>
+              <h6 class="modal-title" id="ModalLabel">Nueva Tesis</h6>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{route('preinscripcion.store')}}" method="post">
+                <form action="{{route('tesis.store')}}" method="post">
                     @csrf
+
                     <div class="input-group input-group-sm mb-3">
-                        <span class="input-group-text"><i class="bi bi-person-check"></i></span>
+                        <span class="input-group-text"><i class="bi bi-person-check"></i>‎   Asesor</span>
                         <!--input name="txtdocente" type="text" class="form-control" placeholder="Docente" required-->
-                        <select class="form-control" name="txtdocente" id="txtdocente">
+                        <select class="form-control" name="txtDocente_Asesor" id="txtDocente_Asesor">
                             @foreach ($docentes as $docente)
                                 <option value="{{ $docente->name }}">{{ $docente->name }}</option>
                             @endforeach
                         </select>
                     </div>
+
                     <div class="input-group input-group-sm mb-3">
                         <span class="input-group-text"><i class="bi bi-building"></i></span>
-                        <input name="txtorganizacion" type="text" class="form-control" placeholder="Organización" required>
+                        <input name="txtTitulo" type="text" class="form-control" placeholder="Título de Tesis" required>
                     </div>
-                    <div class="input-group input-group-sm mb-3">
-                        <span class="input-group-text"><i class="bi bi-box-seam"></i></span>
-                        <input name="txtrubro" type="text" class="form-control" placeholder="Rubro" required>
-                    </div>
-                    <div class="input-group input-group-sm mb-3">
-                        <span class="input-group-text"><i class="bi bi-person-badge"></i></span>
-                        <input name="txtsupervisor" type="text" class="form-control" placeholder="Nombre Supervisor" required>
-                    </div>
+
                     <div class="input-group input-group-sm mb-3">
                         <span class="input-group-text"><i class="bi bi-award"></i></span>
-                        <input name="txtcargo" type="text" class="form-control" placeholder="Cargo Supervisor" required>
+                        <input name="txtCarpeta" type="text" class="form-control" placeholder="Link de carpeta institucional" required>
                     </div>
+
                     <div class="input-group input-group-sm mb-3">
                         <span class="input-group-text"><i class="bi bi-phone"></i></span>
-                        <input name="txttelefono" type="number" class="form-control" placeholder="Télefono Supervisor" required>
+                        <input name="txtTelefono" type="number" class="form-control" placeholder="Teléfono de contacto" required>
                     </div>
+
                     <div class="input-group input-group-sm mb-3">
-                        <span class="input-group-text"><i class="bi bi-envelope-open"></i></span>
-                        <input name="txtcorreo" type="email" class="form-control" placeholder="Correo Supervisor" required>
+                        <span class="input-group-text"><i class="bi bi-calendar-check"></i>       Fecha de Inicio</span>
+                        <input name="txtFInicio" type="date" class="form-control" placeholder="Fecha de Inicio" required>
                     </div>
-                    <div class="input-group input-group-sm mb-3">
-                        <span class="input-group-text"><i class="bi bi-calendar-check"></i></span>
-                        <input name="txtfinicio" type="date" class="form-control" placeholder="Fecha Inicio" required>
-                    </div>
-                    <div class="input-group input-group-sm mb-3">
-                        <span class="input-group-text"><i class="bi bi-calendar-x"></i></span>
-                        <input name="txtftermino" type="date" class="form-control" placeholder="Fecha Termino" required>
-                    </div>
-                    <div class="input-group input-group-sm mb-3">
-                        <span class="input-group-text"><i class="bi bi-clock"></i></span>
-                        <input name="txthoras" type="number" class="form-control" placeholder="Horas de Trabajo Semanal" required>
-                    </div>
+                    
                     <div class="input-group input-group-sm mb-3">
                         <span class="input-group-text"><i class="bi bi-card-text"></i></span>
-                        <textarea name="txtdescripcion" class="form-control" placeholder="Descripción de Práctica" required></textarea>
+                        <textarea name="txtSumilla" class="form-control" placeholder="Sumilla del trabajo" required></textarea>
                     </div>
+
             </div>
+
             <div class="modal-footer">
               <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal"> <i class="bi bi-x-lg"></i> Cancelar</button>
               <button type="submit" class="btn btn-outline-primary btn-sm"> <i class="bi bi-triangle"></i> Enviar</button>
                 </form>
             </div>
+
           </div>
         </div>
     </div>
+
     @foreach ($tesis as $item)
         <div class="modal fade" id="exampleModalToggle{{ $item->id }}" aria-hidden="true" aria-labelledby="exampleModalToggleLabel{{ $item->id }}" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">

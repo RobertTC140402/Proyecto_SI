@@ -33,3 +33,8 @@ Route::get('/{id}/topdf',[PracticaController::class,'topdf'])->middleware('auth'
 
 Route::get('/judge',[JudgeController::class,'index'])->middleware('auth.judge')->name('judge.index');
 
+Route::get('/tesisasesor',[AdminController::class,'tesis'])->middleware('auth.admin')->name('admin.tesis');
+
+Route::get('/tesis',[TesisController::class,'index'])->middleware('auth')->name('tesis.index');
+
+Route::put('/{id}/updatej',[TesisController::class,'updatej'])->name('tesis.updatej')->middleware('auth.judge');

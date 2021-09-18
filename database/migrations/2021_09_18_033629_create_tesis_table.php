@@ -19,13 +19,15 @@ class CreateTesisTable extends Migration
             $table->string('titulo');
             $table->string('documentos');
             $table->string('alumno');
+            $table->string('telefono');
+            $table->date('finicio');
             $table->string('asesor');
-            $table->string('jurado');
-            $table->date('fsustentación')->nullable();
+            $table->string('jurado')->nullable();
+            $table->date('fsustentacion')->nullable();
             $table->string('link_sustentacion')->nullable();
             $table->string('estado');
-            $table->string('comentario')->nullable();
-            $table->string('observación')->nullable();
+            $table->string('sumilla')->nullable();
+            $table->string('observacion')->nullable();
             $table->timestamps();
         });
     }
