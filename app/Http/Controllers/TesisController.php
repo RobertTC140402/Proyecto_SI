@@ -98,6 +98,7 @@ class TesisController extends Controller
         $tesis=Tesis::find($id);
         $tesis->link_sustentacion=$request->txtlink_sustentacion;
         $tesis->fsustentacion=$request->txtFSustentacion;
+        $tesis->jurado=$request->auth()->user()->name;
         $tesis->save();
         return redirect('/judge')->with('status','Felicidades, usted ha calificado para Jurado');
     }
